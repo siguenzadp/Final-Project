@@ -1,0 +1,471 @@
+
+:root {
+    --navy: #17324D;
+    --navy-dark: #10263A;
+    --teal: #087F75;
+    --teal-dark: #06665E;
+    --mint: #E9F5F2;
+    --off-white: #F7F9FC;
+    --gold: #F2B84B;
+    --text: #263747;
+    --muted: #586A79;
+    --border: #DCE6EA;
+    --white: #FFFFFF;
+    --shadow: 0 8px 24px rgba(23, 50, 77, 0.07);
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--off-white);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+}
+
+a {
+    color: var(--teal);
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--teal-dark);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+::selection {
+    background-color: var(--gold);
+    color: var(--navy-dark);
+}
+
+/* 2. WEBSITE HEADER AND MAIN NAVIGATION */
+body > header {
+    padding: 32px 20px 36px;
+    background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+    color: var(--white);
+    text-align: center;
+}
+
+body > header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+body > header > p {
+    margin: 6px 0 0;
+    color: #C7E6E1;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+}
+
+body > header nav {
+    margin: 24px auto 20px;
+}
+
+body > header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body > header nav a {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body > header nav a:hover,
+body > header nav a[aria-current="page"] {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy-dark);
+}
+
+body > header > a {
+    display: inline-block;
+    padding: 11px 25px;
+    border-radius: 999px;
+    background-color: var(--gold);
+    color: var(--navy-dark);
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+body > header > a:hover {
+    background-color: #FFD17B;
+    color: var(--navy-dark);
+    transform: translateY(-2px);
+}
+
+/* 3. MAIN LAYOUT AND CONTENT SECTIONS */
+main {
+    width: min(1100px, calc(100% - 40px));
+    margin: 35px auto 65px;
+}
+
+main > section {
+    margin-bottom: 24px;
+    padding: clamp(24px, 4vw, 42px);
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+    scroll-margin-top: 20px;
+}
+
+main > section:target {
+    border-color: var(--teal);
+}
+
+main h2 {
+    margin: 0 0 15px;
+    color: var(--navy);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+}
+
+main h3 {
+    margin: 0 0 9px;
+    color: var(--teal-dark);
+    font-size: 1.12rem;
+}
+
+main p {
+    margin: 0 0 16px;
+    color: var(--muted);
+}
+
+main ul,
+main ol {
+    padding-left: 25px;
+    margin: 12px 0 20px;
+}
+
+main li {
+    margin-bottom: 9px;
+}
+
+main li::marker {
+    color: var(--teal);
+}
+
+/* 4. HERO BANNER */
+main > section#hero {
+    padding: clamp(32px, 6vw, 65px);
+    border: none;
+    border-radius: 24px;
+    background: linear-gradient(120deg, var(--navy), var(--teal));
+    color: var(--white);
+}
+
+#hero h2 {
+    max-width: 720px;
+    color: var(--white);
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+#hero > p:first-child {
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+#hero > p:not(:first-child) {
+    max-width: 700px;
+    color: #E0F3F0;
+    font-size: 1.05rem;
+}
+
+main section > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+    gap: 16px;
+    margin: 22px 0;
+}
+
+main section > div > article,
+main section > article {
+    padding: 22px;
+    border-left: 4px solid var(--teal);
+    border-radius: 12px;
+    background-color: var(--off-white);
+}
+
+main section > article {
+    margin: 16px 0;
+}
+
+main article p:last-child,
+main article ul:last-child,
+main article ol:last-child {
+    margin-bottom: 0;
+}
+
+main article ul,
+main article ol {
+    padding-left: 20px;
+}
+
+
+main > section > a,
+main section article > a {
+    display: inline-block;
+    margin: 8px 10px 8px 0;
+    padding: 11px 18px;
+    border-radius: 9px;
+    background-color: var(--teal);
+    color: var(--white);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+main > section > a:hover,
+main section article > a:hover {
+    background-color: var(--teal-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+#hero > a {
+    background-color: var(--gold);
+    color: var(--navy-dark);
+}
+
+#hero > a:hover {
+    background-color: #FFD17B;
+    color: var(--navy-dark);
+}
+
+/* 7. TABLES */
+table {
+    width: 100%;
+    min-width: 510px;
+    margin: 22px 0;
+    border-collapse: collapse;
+    background-color: var(--white);
+    font-size: 0.95rem;
+}
+
+caption {
+    padding: 0 0 12px;
+    color: var(--navy);
+    font-weight: 700;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+thead {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+thead th {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--off-white);
+}
+
+tbody tr:hover {
+    background-color: var(--mint);
+}
+
+tfoot {
+    background-color: var(--mint);
+    color: var(--navy);
+    font-weight: 700;
+}
+
+/* 8. IMAGES AND VIDEOS */
+figure {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background-color: var(--white);
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 9px;
+}
+
+figcaption {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+video,
+iframe {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto;
+    border: 0;
+    border-radius: 12px;
+    background-color: var(--navy-dark);
+}
+
+/* 9. SPECIAL CONTENT SECTIONS */
+#sdg4 {
+    border-left: 6px solid var(--teal);
+    background-color: var(--mint);
+}
+
+#next-step {
+    background: linear-gradient(120deg, #E4F4EF, #F9FBFD);
+    border-color: #C9E5DC;
+}
+
+#disclaimer {
+    background-color: #FFF9EA;
+    border-left: 5px solid var(--gold);
+}
+
+/* 10. FOOTER */
+body > footer {
+    padding: 45px 20px 28px;
+    background-color: var(--navy-dark);
+    color: var(--white);
+    text-align: center;
+}
+
+body > footer h2 {
+    margin: 0 0 8px;
+    font-size: 1.7rem;
+}
+
+body > footer p {
+    margin: 6px 0;
+    color: #C9D8E1;
+}
+
+body > footer nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 22px;
+    padding: 0;
+    margin: 22px 0;
+    list-style: none;
+}
+
+body > footer nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+body > footer nav a:hover,
+body > footer nav a[aria-current="page"] {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+/* 11. MOBILE AND TABLET RESPONSIVENESS */
+@media (max-width: 700px) {
+    body > header {
+        padding: 26px 15px 30px;
+    }
+
+    body > header nav ul {
+        gap: 8px;
+    }
+
+    body > header nav a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        width: calc(100% - 24px);
+        margin-top: 20px;
+        margin-bottom: 35px;
+    }
+
+    main > section {
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    main > section#hero {
+        padding: 32px 22px;
+        border-radius: 18px;
+    }
+
+    main section > div {
+        grid-template-columns: 1fr;
+    }
+
+    main section > div > article,
+    main section > article {
+        padding: 18px;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th,
+    td {
+        padding: 10px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
